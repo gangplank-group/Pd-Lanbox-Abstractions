@@ -1,0 +1,18 @@
+#N canvas 561 83 563 527 10;
+#X obj 147 9 flow.@parse;
+#X obj 47 -53 inlet options;
+#X obj 147 -14 dollarg;
+#X obj 42 404 outlet doublepacked;
+#X obj 42 304 list.pak.2 f f;
+#X obj 147 -39 loadbang;
+#X obj 55 38 route engine output float;
+#X obj 42 332 flow.prepend EngineSetOutput;
+#X connect 0 0 6 0;
+#X connect 1 0 6 0;
+#X connect 2 0 0 0;
+#X connect 4 0 7 0;
+#X connect 5 0 2 0;
+#X connect 6 0 4 0;
+#X connect 6 1 4 1;
+#X connect 6 2 4 1;
+#X connect 7 0 3 0;

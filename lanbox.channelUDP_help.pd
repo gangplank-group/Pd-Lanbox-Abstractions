@@ -1,0 +1,67 @@
+#N canvas 796 41 998 842 10;
+#X obj -41 33 hsl 128 15 0 255 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X text -37 15 value for the channel already scaled 0 255;
+#X text -48 92 create table array;
+#X obj 144 689 mrpeach/udpsend;
+#X msg 382 584 disconnect;
+#X obj 382 542 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 382 561 sel 0 1;
+#X msg 381 608 connect 192.168.1.77 4777;
+#X obj -68 295 list;
+#X obj -68 214 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj -68 239 metro 50;
+#X text -24 354 nr 1 + 2 = header nr 3 + 4 sequence number ? nr 5 message
+header nr 6 = layer nr 7 + 8 = package lengh (numbers of channels +
+6 = nr 7*256 + nr 8) nr 9 + 10 = start channel;
+#X obj -67 320 flow.prepend 192 183 85 135 202 1 0 106 0 1;
+#X text 22 404 Don´t change nr 1-5 for layer/engine number change
+6 for number of channels change 8 for start channel change 10;
+#X obj -45 117 table array1;
+#X obj -44 59 lanbox.channelUDP @array 1 @channel 2;
+#X obj 253 118 table array2;
+#X obj 252 32 hsl 128 15 0 255 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X obj 249 58 lanbox.channelUDP @array 2 @channel 50;
+#X obj -67 266 tabdump array1;
+#X obj 563 29 hsl 128 15 0 255 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X obj 560 55 lanbox.channelUDP @array 3 @channel 25;
+#X obj 561 118 table array3;
+#X obj 441 312 list;
+#X obj 441 231 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 441 256 metro 50;
+#X obj 442 283 tabdump array2;
+#X text -19 291 this example is set to work with 100 channels on layerA/engine1
+\, starting at channel 1;
+#X obj 442 337 flow.prepend 192 183 85 135 202 5 0 16 0 11;
+#X text 490 308 this example is set to work with 10 channels on layerE/engine5
+\, starting at channel 11;
+#X text 66 148 IMPORTANT:THE ABSTRACTION IS WRITTEN TO WORK WITH 3
+ARRAYS \; NAMED array1 \, array2 and array3 (THESE NAMES HAVE TO BE
+RESPECTED);
+#X text 67 185 THEN YOU CAN MAP ANY OF THESE 3 ARRAYS TO ANY OF YOUR
+LAYERS/ENGINES (SEE BELOW);
+#X text 68 212 THE LANBOX WILL ACCEPT MAXIMUM 3 UDP FLOWS ON 3 LAYERS
+SIMULTANOUSLY;
+#X connect 0 0 15 0;
+#X connect 4 0 3 0;
+#X connect 5 0 6 0;
+#X connect 6 0 4 0;
+#X connect 6 1 7 0;
+#X connect 7 0 3 0;
+#X connect 8 0 12 0;
+#X connect 9 0 10 0;
+#X connect 10 0 19 0;
+#X connect 12 0 3 0;
+#X connect 17 0 18 0;
+#X connect 19 0 8 0;
+#X connect 20 0 21 0;
+#X connect 23 0 28 0;
+#X connect 24 0 25 0;
+#X connect 25 0 26 0;
+#X connect 26 0 23 0;
+#X connect 28 0 3 0;

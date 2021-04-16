@@ -1,0 +1,151 @@
+#N canvas 72 25 1277 777 10;
+#X obj 102 102 cnv 15 296 296 empty empty empty 20 12 0 14 -142292
+-66577 0;
+#X msg -351 120 engine \$1;
+#X floatatom 107 164 5 0 512 3 cuelist - -;
+#X floatatom 158 163 5 0 0 3 cuestep - -;
+#X msg -268 118 cuelist \$1;
+#X msg -174 120 cuestep \$1;
+#X obj 108 129 bng 32 250 50 0 empty empty GoToStep 3 18 1 18 -260097
+-1 -1;
+#X obj 326 135 bng 32 250 50 0 empty empty GoNext 3 18 1 18 -260097
+-1 -1;
+#X obj 247 137 bng 32 250 50 0 empty empty GoBack 3 18 1 18 -260097
+-1 -1;
+#X msg 577 256 EngineNext \$1;
+#X msg 559 223 EnginePrevious \$1;
+#X obj 107 362 bng 32 250 50 0 empty empty EngineClear 3 18 1 18 -260097
+-1 -1;
+#X msg 105 406 EngineClear \$1;
+#X msg -223 208 engine \$1;
+#X obj -178 19 r \$0-engine;
+#X obj -114 165 r \$0-engine;
+#X msg -140 206 fading \$1;
+#X obj 108 194 tgl 32 0 empty empty FadingOnOff 3 15 1 18 -260097 -1
+-1 1 1;
+#X obj 358 663 nop;
+#X msg -224 355 engine \$1;
+#X obj 108 232 bng 32 250 50 0 empty empty FadeType 3 18 1 18 -260097
+-1 -1;
+#X obj -139 284 r \$0-engine;
+#X msg -128 328 fadetype \$1;
+#X obj 211 234 hradio 15 1 0 8 empty empty empty 0 -8 0 10 -262144
+-1 -1 0;
+#X msg 562 362 engine \$1;
+#X obj 108 273 bng 32 250 50 0 empty empty FadeTime 3 18 1 18 -260097
+-1 -1;
+#X obj 489 280 r \$0-engine;
+#X msg 648 373 fadetime \$1;
+#X obj 234 286 hsl 120 20 0 255 0 0 empty empty code 100 8 1 10 -256001
+-1 -1 3453 1;
+#X obj 270 264 nbx 6 18 0 255 0 0 empty empty empty 0 -8 1 16 -262144
+-1 -1 74 256;
+#X msg 223 260 set \$1;
+#X obj 745 346 number.round;
+#X obj 210 290 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 560 553 engine \$1;
+#X obj 110 321 bng 32 250 50 0 empty empty MixMode 3 18 1 18 -260097
+-1 -1;
+#X obj 469 484 r \$0-engine;
+#X obj 218 328 hradio 15 1 0 6 empty empty empty 0 -8 0 10 -262144
+-1 -1 2;
+#X msg 643 551 mixmode \$1;
+#X obj 108 672 outlet;
+#X obj 205 10 init.lb;
+#X obj 313 38 \$1;
+#X obj 434 108 s \$0-engine;
+#X obj 101 549 spigot;
+#X obj 342 365 tgl 32 0 empty empty Mute 8 15 1 18 -1986 -1 -1 0 1
+;
+#X obj 421 359 init.lf 1;
+#X obj -197 77 f;
+#X obj 46 401 f;
+#X obj 18 374 r \$0-engine;
+#X obj 630 179 f;
+#X obj 605 134 r \$0-engine;
+#X obj 416 160 f;
+#X obj -220 186 f;
+#X obj -168 153 t b f;
+#X obj -226 240 lanbox.enginesetfading \$1 0;
+#X obj -227 386 lanbox.enginesetfadetype \$1 0;
+#X obj 557 584 lanbox.enginesetmixmode \$1 1;
+#X obj 562 393 lanbox.enginesetfadetime \$1 0;
+#X obj -224 333 f;
+#X obj 564 342 f;
+#X obj 562 530 f;
+#X obj 350 103 nbx 2 24 0 99 0 0 empty empty Engine -60 14 1 18 -262144
+-1 -1 1 256;
+#X obj 337 417 sel 0 1;
+#X msg 285 476 1;
+#X msg 340 480 0;
+#X obj 27 173 init.lf 1;
+#X obj -354 152 lanbox.enginego \$1 1 0;
+#X connect 1 0 65 0;
+#X connect 2 0 4 0;
+#X connect 3 0 5 0;
+#X connect 4 0 65 0;
+#X connect 5 0 65 0;
+#X connect 6 0 45 0;
+#X connect 7 0 48 0;
+#X connect 8 0 50 0;
+#X connect 9 0 42 0;
+#X connect 10 0 42 0;
+#X connect 11 0 46 0;
+#X connect 12 0 42 0;
+#X connect 13 0 53 0;
+#X connect 14 0 45 1;
+#X connect 15 0 51 1;
+#X connect 16 0 53 0;
+#X connect 17 0 52 0;
+#X connect 18 0 42 0;
+#X connect 19 0 54 0;
+#X connect 20 0 57 0;
+#X connect 21 0 57 1;
+#X connect 22 0 54 0;
+#X connect 23 0 22 0;
+#X connect 24 0 56 0;
+#X connect 25 0 58 0;
+#X connect 26 0 58 1;
+#X connect 27 0 56 0;
+#X connect 28 0 31 0;
+#X connect 29 0 30 0;
+#X connect 30 0 28 0;
+#X connect 31 0 29 0;
+#X connect 31 0 27 0;
+#X connect 32 0 28 0;
+#X connect 33 0 55 0;
+#X connect 34 0 59 0;
+#X connect 35 0 59 1;
+#X connect 36 0 37 0;
+#X connect 37 0 55 0;
+#X connect 39 0 40 0;
+#X connect 40 0 60 0;
+#X connect 42 0 38 0;
+#X connect 43 0 61 0;
+#X connect 44 0 43 0;
+#X connect 45 0 1 0;
+#X connect 46 0 12 0;
+#X connect 47 0 46 1;
+#X connect 48 0 9 0;
+#X connect 49 0 48 1;
+#X connect 49 0 50 1;
+#X connect 50 0 10 0;
+#X connect 51 0 13 0;
+#X connect 52 0 51 0;
+#X connect 52 1 16 0;
+#X connect 53 0 18 0;
+#X connect 54 0 18 0;
+#X connect 55 0 18 0;
+#X connect 56 0 18 0;
+#X connect 57 0 19 0;
+#X connect 58 0 24 0;
+#X connect 59 0 33 0;
+#X connect 60 0 41 0;
+#X connect 61 0 62 0;
+#X connect 61 1 63 0;
+#X connect 62 0 42 1;
+#X connect 63 0 42 1;
+#X connect 64 0 17 0;
+#X connect 65 0 42 0;
+#X coords 0 -1 1 1 300 300 1 100 100;

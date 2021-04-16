@@ -1,0 +1,18 @@
+#N canvas -6 24 563 527 10;
+#X obj 53 258 outlet doublepacked;
+#X obj 53 186 flow.prepend EngineSetTransparencyDepth;
+#X obj 53 142 list.pak.2 f f;
+#X obj 356 -113 inlet options;
+#X obj 393 -91 loadbang;
+#X obj 393 -62 dollarg;
+#X obj 190 34 route engine transparency float;
+#X obj 394 -25 flow.@parse;
+#X connect 1 0 0 0;
+#X connect 2 0 1 0;
+#X connect 3 0 6 0;
+#X connect 4 0 5 0;
+#X connect 5 0 7 0;
+#X connect 6 0 2 0;
+#X connect 6 1 2 1;
+#X connect 6 2 2 1;
+#X connect 7 0 6 0;

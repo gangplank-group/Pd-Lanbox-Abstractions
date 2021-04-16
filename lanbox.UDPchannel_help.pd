@@ -1,0 +1,52 @@
+#N canvas 895 99 754 842 10;
+#X obj 150 134 lanbox.UDPchannel;
+#X obj 202 219 table arrayaubeurre;
+#X msg 190 76 255;
+#X msg 232 56 0;
+#X msg 22 61 set arrayaubeurre;
+#X text 17 32 set array name;
+#X obj 171 36 hsl 128 15 0 255 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X text 320 77 channel number;
+#X text 175 18 value for the channel already scaled 0 255;
+#X text 221 200 create table array;
+#X obj 144 689 mrpeach/udpsend;
+#X msg 514 199 disconnect;
+#X obj 514 157 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 514 176 sel 0 1;
+#X msg 513 223 connect 192.168.1.77 4777;
+#X obj -68 295 list;
+#X obj -68 214 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj -68 239 metro 50;
+#X obj 28 185 init.lf;
+#X text -24 354 nr 1 + 2 = header nr 3 + 4 sequence number ? nr 5 message
+header nr 6 = layer nr 7 + 8 = package lengh (numbers of channels +
+6 = nr 7*256 + nr 8) nr 9 + 10 = start channel;
+#X obj -68 266 tabdump arrayaubeurre;
+#X msg 28 214 \; arrayaubeurre resize 100;
+#X msg 339 99 50;
+#X obj -67 320 flow.prepend 192 183 85 135 202 1 0 106 0 1;
+#X text 203 312 this example is set to work with 100 channels on layerA/engine1
+;
+#X text 22 404 Don´t change nr 1-5 for layer/engine number change
+6 for number of channels change 8 for start channel change 10;
+#X text 262 134 to be modified to be able to write the arguments directly
+in the object;
+#X connect 2 0 0 1;
+#X connect 3 0 0 1;
+#X connect 4 0 0 0;
+#X connect 6 0 0 1;
+#X connect 11 0 10 0;
+#X connect 12 0 13 0;
+#X connect 13 0 11 0;
+#X connect 13 1 14 0;
+#X connect 14 0 10 0;
+#X connect 15 0 23 0;
+#X connect 16 0 17 0;
+#X connect 17 0 20 0;
+#X connect 18 0 21 0;
+#X connect 20 0 15 0;
+#X connect 22 0 0 2;
+#X connect 23 0 10 0;

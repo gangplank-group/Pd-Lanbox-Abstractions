@@ -1,0 +1,33 @@
+#N canvas 0 0 596 385 10;
+#X obj 33 290 lanbox.channel @engine 1 @channel 1 @smooth 100;
+#X floatatom 33 193 10 0 255 1 ChannelValue - -;
+#X obj 12 12 cnv 15 450 20 empty empty lanbox.channel 2 11 1 18 -233017
+-66577 0;
+#X obj 33 315 tosymbol;
+#X symbolatom 33 345 64 0 0 0 - - -;
+#X floatatom 80 225 5 0 99 0 - - -;
+#X msg 80 250 engine \$1;
+#X text 31 67;
+#X text 15 48 [lanbox.channel] accepts a 0-255 value as an input and
+reformats it according to its startup options as follows:;
+#X text 30 83 - engine defaults to 1 \, range: 0-99;
+#X text 29 100 - channel defaults to 1 \, range: 0-255;
+#X floatatom 163 223 5 0 512 0 - - -;
+#X msg 163 248 channel \$1;
+#X floatatom 257 225 5 0 0 0 - - -;
+#X msg 257 250 smooth \$1;
+#X text 29 116 - smooth defaults to 0 ms \, ranges from 0 up to ...
+It manages the line time to avoid jumping from one value to another.
+;
+#X obj 36 154 hsl 300 32 0 255 0 0 empty empty empty -2 -8 0 10 -257985
+-1 -1 26300 1;
+#X connect 0 0 3 0;
+#X connect 1 0 0 0;
+#X connect 3 0 4 0;
+#X connect 5 0 6 0;
+#X connect 6 0 0 0;
+#X connect 11 0 12 0;
+#X connect 12 0 0 0;
+#X connect 13 0 14 0;
+#X connect 14 0 0 0;
+#X connect 16 0 1 0;
